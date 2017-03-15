@@ -39,7 +39,7 @@
 		 <property name="defaultEncoding" value="utf-8" />
 	</bean> 
 	<!-- the mvc resources tag does the magic -->
-	 <mvc:resources mapping="/aa/**" location="file:/upload/" /> 
+	 <mvc:resources mapping="/aa/**" location="file:/Upload/" /> 
 	<!-- validator, conversionService, messageConverter를 자동으로 등록 -->
 	
 	<mvc:annotation-driven>
