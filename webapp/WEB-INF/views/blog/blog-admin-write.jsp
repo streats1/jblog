@@ -22,28 +22,33 @@
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
-					<li class="selected">기본설정</li>
+					<li><a href="">기본설정</a></li>
 					<li><a href="">카테고리</a></li>
-					<li><a href="">글작성</a></li>
+					<li class="selected">글작성</li>
 				</ul>
-				<form action="" method="post">
-	 		      	<table class="admin-config">
+				<form method="post" action="${pageContext.request.contextPath }/${authUser.id}/admin/write">
+			      	<input type='hidden' name="blogId" value="${authUser.id}">
+			      	<table class="admin-cat-write">
 			      		<tr>
-			      			<td class="t">블로그 제목</td>
-			      			<td><input type="text" size="40" name="title"></td>
+			      			<td class="t">제목</td>
+			      			<td>
+			      				<input type="text" size="60" name="title" value="">
+				      			<select name="no">
+				      				<c:forEach var="vo" items= "${list}" varStatus="status" >
+				      				<option value="${vo.no}">${vo.name}</option>
+				      				</c:forEach>
+				      				
+				      			</select> 
+				      		</td>
 			      		</tr>
 			      		<tr>
-			      			<td class="t">로고이미지</td>
-			      			<td><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>      			
-			      		</tr>      		
+			      			<td class="t">내용</td>
+			      			<td><textarea name="content"></textarea></td>
+			      		</tr>
 			      		<tr>
-			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="logo-file"></td>      			
-			      		</tr>           		
-			      		<tr>
-			      			<td class="t">&nbsp;</td>
-			      			<td class="s"><input type="submit" value="기본설정 변경"></td>      			
-			      		</tr>           		
+			      			<td>&nbsp;</td>
+			      			<td class="s"><input type="submit" value="포스트하기"></td>
+			      		</tr>
 			      	</table>
 				</form>
 			</div>
